@@ -1,0 +1,33 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto; 
+    align-items: center; 
+    gap: 8px; 
+    margin-top: 24px;
+    margin-left: 4px;
+  }
+  
+  .headerProduct {
+    font-weight: bold;
+    padding-right: 8px; 
+    margin-bottom: 6px;
+  }
+  
+  .productValue {
+    text-align: left; 
+  }
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      grid-template-columns: 1fr; 
+    }
+  
+    .headerProduct, .productValue {
+      text-align: center; 
+    }
+  }
+  
+  .productValue img {
+    max-width: 100%; 
+    height: auto; 
+  }

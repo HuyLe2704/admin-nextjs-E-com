@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import './ui/globals.css'
+import { PrimeReactProvider } from "primereact/api";
+import "primereact/resources/primereact.css";
+import "primeicons/primeicons.css";
+import { StoreProvider } from "./lib/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <PrimeReactProvider>
+            {children}
+          </PrimeReactProvider>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

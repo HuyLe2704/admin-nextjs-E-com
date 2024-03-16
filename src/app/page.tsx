@@ -1,95 +1,66 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import { SubmitHandler, useForm } from 'react-hook-form';
+import cx from './login.module.css'
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import Image from 'next/image';
+import { adminLogin } from './data/data';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Loading from './loading';
 
-export default function Home() {
+const App = () => {
+  const { handleSubmit,  register, formState: { errors }, reset } = useForm();
+  const [loading, setLoading] = useState(false);
+  const [loginSuccessfull, setLoginSuccessfull] = useState<boolean>(false)
+  const router = useRouter();
+  const [messageLogin, setMessageLogin] = useState('');
+
+  const onSubmit = (data: any) => {
+    setLoading(true); 
+    setTimeout(() => {
+      setLoading(false); 
+      if (data.username === adminLogin.username && data.password === adminLogin.password) {
+        setMessageLogin("Đăng nhập thành công")
+        reset();
+        setLoginSuccessfull(true)
+        router.push('/dashboard'); 
+      } else {
+        setMessageLogin('Đăng nhập thất bại, hãy kiểm tra lại thông tin tài khoản.');
+        setLoginSuccessfull(false)
+      }
+    }, 1000);
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
+      {loading && <Loading />}
+      <form onSubmit={handleSubmit(onSubmit)} className={cx.formSubmit}>
+        <h4>CHÀO MỪNG ĐẾN VỚI TRANG QUẢN TRỊ</h4>
+        <label htmlFor='username' className={cx.label}>Tài khoản</label>
+        <InputText
+          placeholder='Tài khoản' 
+          id="username" className={cx.input} 
+          {...register('username', { required: true })} 
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {errors.username && <p style={{color: 'red'}}>Tài khoản là bắt buộc</p>}
+        <label htmlFor='password' className={cx.label}>Mật khẩu</label>
+        <InputText 
+          placeholder='Mật khẩu' 
+          type='password'
+          id="password" className={cx.input} 
+          {...register('password', { required: true })} 
+        />
+        {errors.password && <p style={{color: 'red'}}>Mật khẩu là bắt buộc</p>}
+        <Button label='Đăng nhập' className={cx.button} type='submit' />
+        <div style={{marginTop: '12px'}}></div>
+        {messageLogin && <span style={{color: messageLogin.includes("thành công") ? 'green' : 'red'}}>{messageLogin}</span>}
+        <div className={cx.background}>
+          <Image alt="login-image" src='/astronaut.png' className={cx.image} fill sizes='' />
+        </div>
+      </form>
+    </div>
   );
 }
+
+export default App;

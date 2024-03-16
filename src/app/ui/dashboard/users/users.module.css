@@ -1,0 +1,76 @@
+.wrapper {
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addButton {
+    padding: 10px;
+    background-color: #5d57c9;
+    color: var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.table {
+    width: 100%;
+}
+
+.column {
+    padding: 10px 0 10px 4px;
+}
+
+.user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.userImage {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text);
+    cursor: pointer;
+    border: none;
+}
+
+.view {
+    background-color: teal;
+}
+
+.delete {
+    background-color: red;
+}
+
+.buttonEye {
+    border-radius: 50%;
+    height: 2.357rem;
+    width: 2.357rem;
+    padding: 0.5rem 0;
+    border-color: transparent;
+    position: relative;
+    top: 8px;
+    left: 10px;
+    background: #90CAF9;
+    border: 1px solid #90CAF9;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}

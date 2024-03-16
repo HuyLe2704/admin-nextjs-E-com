@@ -1,0 +1,70 @@
+.wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input {
+    margin: 12px;
+    background-color: #fff;
+    color: #333;
+    width: 340px;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    border-radius: 4px;
+}
+
+.inputDropdown {
+    margin: 12px;
+    background-color: #fff;
+    color: #333;
+    width: 340px;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    border-radius: 4px;
+}
+
+.headerProduct {
+    margin: 12px 0 12px 12px;
+}
+
+.error {
+    color: red;
+    margin-left: 12px;
+    padding-bottom: 8px;
+}
+
+.emptyTemplate {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fileUpLoad {
+    margin: 10px;
+    width: 345px;
+}
+
+.doubleButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.buttonCancel {
+    background-color: yellow;
+    margin-right: 10px;
+    width: 80px;
+}
+
+.buttonCancel:hover {
+    background-color: yellow !important;
+    opacity: 0.9;
+}
+
+.buttonSubmit {
+    width: 80px;
+}
