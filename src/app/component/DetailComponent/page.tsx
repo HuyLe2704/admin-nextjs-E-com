@@ -1,3 +1,5 @@
+'use client'
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RootState } from "@/app/lib/store"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
@@ -36,6 +38,7 @@ const DetailComponent = (props: DetailComponentProps) => {
             <Toast ref={toast} />
             <div className={cx.wrapper}>
                 {props.addInput.map((input, index) => {
+                    console.log(input.field)
                     let value = props.infoItem ? props.infoItem[input.field] : '';
                     if (input.type === 'radio') {
                         value = value === 1 ? 'Có' : 'Không';

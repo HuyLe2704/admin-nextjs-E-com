@@ -13,3 +13,7 @@ export const CATEGORIES_API_URL = 'http://localhost:8883/api/categories'
 
 // Item corresponding
 export const ITEMCORS_API_URL = 'http://localhost:8883/api/item_corresponding'
+
+// File upload cloudinary
+export const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
+export const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;

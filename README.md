@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, you need to set up the backend server for this application. To get the server running, locate the `project-reactjs-java` directory which contains the backend code. Using an IDE such as IntelliJ IDEA, WebStorm, or NetBeans, open the `project-reactjs-java` as a project. Once opened, you can run the server by executing the main class or using the built-in run configuration for Spring Boot applications.
+
+Next, run the development server:
 
 ```bash
 npm run dev
