@@ -4,6 +4,7 @@ import userReducer from '../dashboard/users/slice'
 import voucherReducer from '../dashboard/vouchers/slice'
 import categoryReducer from '../dashboard/categories/slice'
 import ItemCorReducer from '../dashboard/categories/detail/[id]/slice'
+import ordersReducer from '../dashboard/orders/slice'
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     users: userReducer,
     vouchers: voucherReducer,
     categories: categoryReducer,
-    itemCorresponding: ItemCorReducer
+    itemCorresponding: ItemCorReducer,
+    orders: ordersReducer
   },
 });
 

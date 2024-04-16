@@ -48,4 +48,21 @@ declare namespace DataInterfaces {
         quantity: number;
         hidden: number;
     }
+
+    interface Orders {
+        id: any,
+        orderAt: string;
+        orderDetail: OrdersDetail[];
+        customerId: any
+    }
+
+    interface OrdersDetail {
+        id?: number,
+        orderId?: string | number,
+        productName: string;
+        price: number;
+        newPrice: number,
+        buyTime: string;
+        quantityOrder: number;
+    }
 }

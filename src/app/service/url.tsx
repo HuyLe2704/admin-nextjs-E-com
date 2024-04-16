@@ -14,6 +14,13 @@ export const CATEGORIES_API_URL = 'http://localhost:8883/api/categories'
 // Item corresponding
 export const ITEMCORS_API_URL = 'http://localhost:8883/api/item_corresponding'
 
+// List Order
+export const ORDERS_API_URL = 'http://localhost:8883/api/orders'
+export const ORDERS_DETAIL_API_URL = 'http://localhost:8883/api/order_details'
+
+// Customer 
+export const GET_CUSTOMER_BY_ID_API_URL = 'http://localhost:8883/api/customers'
+
 // File upload cloudinary
 export const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
 export const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;

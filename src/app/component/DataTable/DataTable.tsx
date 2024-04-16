@@ -46,7 +46,7 @@ const DataTableComponent: React.FC<Interfaces.DataTableProps> = (props) => {
         else if (column.field === 'sold') {
             const soldNumber = parseInt(rowData[column.field], 10);
             cellValue = soldNumber.toLocaleString('vi-VN')
-        } else if (column.field === 'price' || column.field === 'rating') {
+        } else if (column.field === 'price' || column.field === 'rating' || column.field === 'newPrice') {
             cellValue = Number(rowData[column.field]).toLocaleString('vi-VN');
         } else {
             cellValue = rowData[column.field];
@@ -73,7 +73,7 @@ const DataTableComponent: React.FC<Interfaces.DataTableProps> = (props) => {
                 )}
                 <span
                     className="pi pi-trash"
-                    style={{ color: 'red', cursor: 'pointer', marginLeft: '18px', marginRight: props.edit ? undefined : '12px' }}
+                    style={{ color: 'red', cursor: 'pointer', marginLeft: props.edit ? '18px' : undefined, marginRight: props.edit ? '12px' : undefined }}
                     onClick={() => handleDeleteData(rowData.id)}
                 >
                 </span>
@@ -105,7 +105,7 @@ const DataTableComponent: React.FC<Interfaces.DataTableProps> = (props) => {
     return (
         <>
             <DataTable
-                emptyMessage="Không có người dùng nào"
+                emptyMessage="Không có dữ liệu nào"
                 value={props.data}
                 className={props.headerClassName}
                 paginator
@@ -145,6 +145,7 @@ const DataTableComponent: React.FC<Interfaces.DataTableProps> = (props) => {
                 <Column
                     header="Chọn"
                     body={action}
+                    style={{ width: props.edit ? undefined : '100px' }}
                 />
             </DataTable>
             <div>

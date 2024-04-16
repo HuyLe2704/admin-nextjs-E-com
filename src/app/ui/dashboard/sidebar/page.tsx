@@ -26,6 +26,11 @@ const menuItems: Interfaces.MenuItem[] = [
                 path: "/dashboard/vouchers",
                 icon: "pi pi-ticket"
             },
+            {
+                title: "Orders",
+                path: "/dashboard/orders",
+                icon: "pi pi-truck"
+            },
         ],
     },
     {
